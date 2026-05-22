@@ -1,6 +1,6 @@
 # casus
 <p align="center">
-  <img src="assets/Logo_SpellMetrics.png" alt="Wizarding Spell Metrics Logo" width="600"/>
+  <img src="Figuren/hsa04662.png" alt="Flow" width="600"/>
 </p>
 
 
