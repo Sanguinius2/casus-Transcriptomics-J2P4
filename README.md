@@ -12,7 +12,7 @@ Perfect voor:
 - Wegwijs worden in GitHub
 - Het leren structureren van data
 
-> `I will not have you in my class if you continue to be a babbling, bumbling band of baboons who can't even SORT their data!`
+> `You Shall Not PASS`
 
 ## 📁 Inhoud mapjes structuur
 
@@ -30,7 +30,7 @@ Perfect voor:
 
 Deze GitHub pagina gaat over Rheuma. Met behulp van de R files kan je zelf ook *UITVOEREN!!!!*.
 
-Als je naar het menselijk genoom wil, [klik hier](bronnen/harry-potter.pdf) om naar .
+Als je naar het menselijk genoom wil, [klik hier](https://www.ncbi.nlm.nih.gov/datasets/genome/GCF_000001405.26/) om naar .
 
 ## Methoden
 
