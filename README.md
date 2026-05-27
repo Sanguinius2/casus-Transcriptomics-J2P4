@@ -1,18 +1,15 @@
-# casus
+# RNA-seq analyse van Reumatoïde Artritis (RA)
 <p align="center">
   <img src="Figuren/hsa04662.png" alt="Flow" width="600"/>
 </p>
 
 
-# Casus Transcriptomis
+# Inleiding
 
-Welkom in **Wizarding Spell Metrics**, waar de data nep is, maar de structuur *verrassend oké* is. Deze repo is gemaakt om te laten zie hoe je een bio-informatica project structureert in GitHub met behulp van een onzin dataset. files mogen gedownload en hergebruikt worden (zoals [deze README.md file](README.md)). Vraag ook gerust AI voor tips!
+Reumatoïde artritis (RA) is een chronische auto-immuunziekte waarbij het immuunsysteem lichaamseigen gewrichten aanvalt. Hierdoor ontstaat ontsteking van het synovium (gewrichtsslijmvlies), wat uiteindelijk kan leiden tot gewrichtsschade. Hoewel de exacte oorzaak van RA nog niet volledig bekend is, spelen genetische factoren, omgevingsfactoren en ontregeling van het immuunsysteem een belangrijke rol.
 
-Perfect voor:
-- Wegwijs worden in GitHub
-- Het leren structureren van data
+In deze analyse is gebruikgemaakt van RNA-seq data van synoviumbiopten van patiënten met RA en gezonde controles. Het doel was om differentieel tot expressie komende genen en betrokken biologische pathways te identificeren.
 
-> `You Shall Not PASS`
 
 ## 📁 Inhoud mapjes structuur
 
@@ -33,20 +30,52 @@ Deze GitHub pagina gaat over Rheuma. Met behulp van de R files kan je zelf ook *
 Als je naar het menselijk genoom wil, [klik hier](https://www.ncbi.nlm.nih.gov/datasets/genome/GCF_000001405.26/) om naar .
 
 ## Methoden
+Voor deze analyse zijn 4 RNA-seq samples van RA-patiënten en 4 controle samples gebruikt.
 
-De data is verstrekt door de Afdeling Magische Wetshandhaving en Ollivanders Wandwinkel Archieven. 
+De analyse werd uitgevoerd in R met de volgende stappen:
 
-De ruwe data van spreuken is eerst bewerkt voor analyse met behulp van [scripts/01_clean_spell_data.R](scripts/01_clean_spell_data.R). Vervolgens zijn de spreuken geanalyseerd op kracht en nauwkeurigheid met [scripts/02_spell_analysis.R](scripts/02_spell_analysis.R).
+De analyse werd uitgevoerd in R met de volgende stappen:
+
+- Aligneren van FASTQ-bestanden tegen het humane referentiegenoom met Rsubread
+- Tellen van reads per gen met featureCounts
+- Differential expression analyse met DESeq2
+- Visualisatie met een volcano plot
+- Gene Ontology (GO) enrichment analyse met goseq
+- KEGG pathway analyse met pathview
+
+Genen worden als significant beschouwd bij een adjusted p-value (padj) van < 0.05 en een |log2FoldChange| > 1
+
 
 ## 📊 Resultaten
 
-Om inzicht te krijgen in eigenschappen van de te gebruiken spreuken is er een overzicht gemaakt, te vinden in [deze tabel](resultaten/top_10_spells.csv). Onvergeeflijke vloeken zijn niet meegenomen in dit overzicht. 
+De differential expression analyse liet duidelijke verschillen zien tussen RA-samples en controles. Zowel opgereguleerde als neergereguleerde genen werden geïdentificeerd.
 
-Om een afweging te maken welke spreuken het meest effectief zijn, is er onderzocht of er een verband te vinden is tussen kracht en accuraatheid. In [het resultaat hiervan](resultaten/spell_power_vs_accuracy.png) is te zien dat er een negatieve daling lijkt te zijn in kracht als de accuraatheid toeneemt. Een uitschieter is de onvergeeflijke vloek *Avada Kedavra*, met zowel hoge kracht als accuraatheid. 
+Een volcano plot werd gebruikt om de significant differentieel tot expressie komende genen te visualiseren.
+
+###Volcano plot
+img
+
+Met behulp van goseq werd onderzocht welke biologische processen oververtegenwoordigd waren in de differentieel tot expressie komende genen.
+
+De sterkst verrijkte GO-term was het Immunoglobulin mediated immune response
+
+Dit wijst op verhoogde activiteit van B-cellen en antistofproductie in het synovium van RA-patiënten. Dit sluit aan bij de bekende rol van auto-antistoffen, zoals ACPA, bij reumatoïde artritis.
+
+###Top GO-termen
+img
+
+Met pathview werden pathways gevisualiseerd die betrokken zijn bij RA. Hierbij werden humane KEGG pathways gebruikt, waaronder:
+
+Rheumatoid arthritis (hsa05323)
+B cell receptor signaling pathway (hsa04662)
+
+De pathway analyse liet verhoogde expressie zien van meerdere immuungerelateerde genen, wat de resultaten van de GO-analyse ondersteunt.
+
+###Pathway visualisatie
 
 ## Conclusie
 
-Spreuken met meer accuraatheid lijken minder krachtig te zijn. Een uitzondering op deze trend is de onvergeeflijke vloek *Avada Kedavra*, welke beter niet gebruikt kan worden. 
+De RNA-seq analyse toont aan dat immuun-gerelateerde processen sterk geactiveerd zijn in synoviumweefsel van RA-patiënten. Zowel de GO enrichment analyse als de KEGG pathway analyse wijzen op verhoogde activiteit van B-cellen en antistof-gemedieerde immuunresponsen. Deze resultaten passen goed binnen het bekende ziektebeeld van reumatoïde artritis.
 
 
 

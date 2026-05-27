@@ -62,15 +62,15 @@ lengthVector <- geneLengths$length
 
 names(lengthVector) <- geneLengths$hgnc_symbol
 
-# Match volgorde met jouw results bestand
+# Match volgorde met eerdere results bestand
 lengthVector <- lengthVector[rownames(results)]
 keep <- !is.na(lengthVector)
 
 sigGenes_filtered <- sigGenes[keep]
 lengthVector_filtered <- lengthVector[keep]
-#fe
+#test of het goed werkt
 sum(is.na(lengthVector_filtered))
-#stop
+#is goed? ga door
 summary(lengthVector)
 pwf <- nullp(
   DEgenes = sigGenes_filtered,
