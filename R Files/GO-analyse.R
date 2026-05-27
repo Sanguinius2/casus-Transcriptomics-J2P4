@@ -1,9 +1,7 @@
+# zet dit naar eigen directorie
 setwd("C:/Users/sande/OneDrive - NHL Stenden/school/jaar 2/Periode 4/casus/human refseq")
 getwd()
-# RNA-seq Gene Set Testing with goseq
-# ----------------------------------
-
-# Load required libraries
+# Laad de required libraries
 library(tidyverse)
 library(goseq)
 library(GO.db)
