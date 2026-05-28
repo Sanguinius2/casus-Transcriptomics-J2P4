@@ -52,8 +52,9 @@ De differential expression analyse liet duidelijke verschillen zien tussen RA-sa
 
 Een volcano plot werd gebruikt om de significant differentieel tot expressie komende genen te visualiseren.
 
-###Volcano plot
-img
+<p align="center">
+  <img src="Figuren/VolcanoplotDOCENTGEGEVEN.png" alt="Flow" width="600"/>
+</p>
 
 Met behulp van goseq werd onderzocht welke biologische processen oververtegenwoordigd waren in de differentieel tot expressie komende genen.
 
@@ -61,8 +62,9 @@ De sterkst verrijkte GO-term was het Immunoglobulin mediated immune response
 
 Dit wijst op verhoogde activiteit van B-cellen en antistofproductie in het synovium van RA-patiënten. Dit sluit aan bij de bekende rol van auto-antistoffen, zoals ACPA, bij reumatoïde artritis.
 
-###Top GO-termen
-img
+<p align="center">
+  <img src="Figuren/GO-ANALYSE-PLOT-EXTENDED-EDITION" alt="Flow" width="600"/>
+</p>
 
 Met pathview werden pathways gevisualiseerd die betrokken zijn bij RA. Hierbij werden humane KEGG pathways gebruikt, waaronder:
 
@@ -71,7 +73,9 @@ B cell receptor signaling pathway (hsa04662)
 
 De pathway analyse liet verhoogde expressie zien van meerdere immuungerelateerde genen, wat de resultaten van de GO-analyse ondersteunt.
 
-###Pathway visualisatie
+<p align="center">
+  <img src="Figuren/hsa05323.pathview.png" alt="Flow" width="600"/>
+</p>
 
 ## Conclusie
 
