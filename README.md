@@ -37,6 +37,7 @@ De analyse werd uitgevoerd in R met de volgende stappen:
 Genen worden als significant beschouwd bij een adjusted p-value (padj) van < 0.05 en een |log2FoldChange| > 1
 
 GO enrichment analyse met goseq corrigeert voor selectiebias in RNA-seq data, wat belangrijk is voor een correcte interpretatie van de data[[3]]
+
 ---
 
 ## Resultaten
