@@ -35,12 +35,12 @@ De analyse werd uitgevoerd in R met de volgende stappen:
 </p>
 De analyse werd uitgevoerd in R met de volgende stappen:
 
-- Aligneren van FASTQ-bestanden tegen het humane referentiegenoom met Rsubread
+- Aligneren van FASTQ-bestanden tegen het humane referentiegenoom met Rsubread(version 2.24.0)
 - Tellen van reads per gen met featureCounts
-- Differential expression analyse met DESeq2
-- Visualisatie met een volcano plot
-- Gene Ontology (GO) enrichment analyse met goseq
-- KEGG pathway analyse met pathview
+- Differential expression analyse met DESeq2(version 1.50.2)
+- Visualisatie met een volcano plot door EnhancedVolcano(version 1.28.2)
+- Gene Ontology (GO) enrichment analyse met goseq(version 1.62.0)
+- KEGG pathway analyse met pathview(version 1.70.0)
 
 Genen worden als significant beschouwd bij een adjusted p-value (padj) van < 0.05 en een |log2FoldChange| > 1
 

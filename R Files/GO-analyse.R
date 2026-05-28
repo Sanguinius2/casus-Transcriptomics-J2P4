@@ -1,13 +1,27 @@
-# zet dit naar eigen directorie
+# Set this to your own directory
 setwd("C:/Users/sande/OneDrive - NHL Stenden/school/jaar 2/Periode 4/casus/human refseq")
 getwd()
-# Laad de required libraries
+#install the necessary packages for this part
+BiocManager::install(c(
+  "goseq",
+  "TxDb.Hsapiens.UCSC.hg38.knownGene",
+  "org.Hs.eg.db",
+  "biomaRt"
+))
+
+# Load de required libraries
 library(tidyverse)
 library(goseq)
 library(GO.db)
 library(biomaRt)
+library(ggplot2)
+library(dplyr)
+library(org.Hs.eg.db)
+library(AnnotationDbi)
+library(pathview)
+library(KEGGREST)
 
-# Lees DESeq2 resultaten in
+# Read the DESeq2 results
 results <- read.csv(
   "ResultatenDOCENTGEGEVEN.csv",
   row.names = 1,
@@ -16,31 +30,22 @@ results <- read.csv(
 
 head(results)
 view(results)
-
+#keep the significant genes apart from the other ones, wich we don't use
 sigGenes <- as.integer(
   !is.na(results$padj) &
     results$padj < 0.05 &
     results$log2FoldChange > 1
 )
 
-# Gebruik gen IDs als namen
+# Use gen IDs as names
 names(sigGenes) <- rownames(results)
 
 table(sigGenes)
-BiocManager::install(c(
-  "goseq",
-  "TxDb.Hsapiens.UCSC.hg38.knownGene",
-  "org.Hs.eg.db",
-  "biomaRt"
-))
-
-library(biomaRt)
-
+#get the gene lengths
 mart <- useMart(
   "ensembl",
   dataset = "hsapiens_gene_ensembl"
 )
-
 geneLengths <- getBM(
   attributes = c(
     "hgnc_symbol",
@@ -52,25 +57,25 @@ geneLengths <- getBM(
   mart = mart
 )
 
-# Bereken genlengte
+# calculate gene length
 geneLengths$length <- geneLengths$end_position -
   geneLengths$start_position
 
 head(geneLengths)
-#2
+#match the gene length to your own results
 lengthVector <- geneLengths$length
 
 names(lengthVector) <- geneLengths$hgnc_symbol
 
-# Match volgorde met eerdere results bestand
+# Match the order with earlier results file
 lengthVector <- lengthVector[rownames(results)]
+#removes genes without a length(NA)
 keep <- !is.na(lengthVector)
-
 sigGenes_filtered <- sigGenes[keep]
 lengthVector_filtered <- lengthVector[keep]
-#test of het goed werkt
+#test if everything went correctly, answer should be 0
 sum(is.na(lengthVector_filtered))
-#is goed? ga door
+#call upon the gene lengths from a database
 summary(lengthVector)
 pwf <- nullp(
   DEgenes = sigGenes_filtered,
@@ -78,19 +83,16 @@ pwf <- nullp(
   id = "geneSymbol",
   bias.data = lengthVector_filtered
 )
-#NEXT STEP
+#GO-analysis
 goResults <- goseq(
   pwf,
   genome = "hg38",
   id = "geneSymbol",
   test.cats = c("GO:BP")
 )
-
+#extra check
 head(goResults)
-#ggplot time
-library(ggplot2)
-library(dplyr)
-
+#makes a plot from the GO-analysis 
 topGO <- goResults %>%
   arrange(over_represented_pvalue) %>%
   slice_head(n = 10) %>%
@@ -118,7 +120,7 @@ dev.copy(png, 'GO-analyse-Resultaten.png')
 dev.off()
 
 
-#Pathway analyse
+#Pathway analysis
 resultaten <- read.csv(
   "ResultatenDOCENTGEGEVEN.csv",
   row.names = 1,
@@ -132,11 +134,8 @@ geneList <- resultaten$log2FoldChange
 names(geneList) <- rownames(resultaten)
 
 head(geneList)
-# install als nog niet gedaan
-BiocManager::install("org.Hs.eg.db")
+
 #Convert gene symbols to Entrez IDs
-library(org.Hs.eg.db)
-library(AnnotationDbi)
 
 geneIDs <- mapIds(
   org.Hs.eg.db,
@@ -153,7 +152,6 @@ names(geneData) <- geneIDs
 # remove NA IDs
 geneData <- geneData[!is.na(names(geneData))]
 #run pathway on hsa
-library(pathview)
 
 pathview(
   gene.data = geneData,
@@ -176,7 +174,5 @@ pathview(
   species = "hsa",
   gene.idtype = "entrez"
 )
-#library voor zoeken
-library(KEGGREST)
-
+#KEGG pathway finder, not mandatory
 keggList("pathway", "hsa")
