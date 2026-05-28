@@ -33,7 +33,9 @@ Als je naar het menselijk genoom wil, [klik hier](https://www.ncbi.nlm.nih.gov/d
 Voor deze analyse zijn 4 RNA-seq samples van RA-patiënten en 4 controle samples gebruikt.
 
 De analyse werd uitgevoerd in R met de volgende stappen:
-
+<p align="center">
+  <img src="Figuren/Flowchart.png" alt="Flow" width="600"/>
+</p>
 De analyse werd uitgevoerd in R met de volgende stappen:
 
 - Aligneren van FASTQ-bestanden tegen het humane referentiegenoom met Rsubread
