@@ -3,9 +3,9 @@
 
 # Inleiding
 
-Reumatoïde artritis (RA) is een chronische auto-immuunziekte waarbij het immuunsysteem lichaamseigen gewrichten aanvalt. Hierdoor ontstaat ontsteking van het synovium (gewrichtsslijmvlies), wat uiteindelijk kan leiden tot gewrichtsschade. Hoewel de exacte oorzaak van RA nog niet volledig bekend is, spelen genetische factoren, omgevingsfactoren en ontregeling van het immuunsysteem een belangrijke rol[Gabriel, 2001; ](https://doi.org/10.1016/S0889-857X(05)70201-5)[Platzer et al., 2019](https://doi.org/10.1371/journal.pone.0219709).
+Reumatoïde artritis (RA) is een chronische auto-immuunziekte waarbij het immuunsysteem lichaamseigen gewrichten aanvalt. Hierdoor ontstaat ontsteking van het synovium (gewrichtsslijmvlies), wat uiteindelijk kan leiden tot gewrichtsschade. Hoewel de exacte oorzaak van RA nog niet volledig bekend is, spelen genetische factoren, omgevingsfactoren en ontregeling van het immuunsysteem een belangrijke rol[(Gabriel, 2001; ](https://doi.org/10.1016/S0889-857X(05)70201-5)[Platzer et al., 2019)](https://doi.org/10.1371/journal.pone.0219709).
 
-RA is bekend door complexe veranderingen in genexpressie in het synoviale weefsel, waarbij vooral immuun-gerelateerde pathways sterk geactiveerd zijn. RNA-seq studies hebben aangetoond dat deze veranderingen op transcriptieniveau inzichten kunnen geven in ziekteactiviteit en onderliggende biologische mechanismen[[2]](https://doi.org/10.1371/journal.pone.0219709).
+RA is bekend door complexe veranderingen in genexpressie in het synoviale weefsel, waarbij vooral immuun-gerelateerde pathways sterk geactiveerd zijn. RNA-seq studies hebben aangetoond dat deze veranderingen op transcriptieniveau inzichten kunnen geven in ziekteactiviteit en onderliggende biologische mechanismen[(Platzer et al., 2019)](https://doi.org/10.1371/journal.pone.0219709).
 
 In deze analyse is gebruikgemaakt van RNA-seq data van synoviumbiopten van patiënten met RA en gezonde controles. Het doel was om differentieel tot expressie komende genen en betrokken biologische pathways te identificeren.
 
@@ -36,7 +36,7 @@ De analyse werd uitgevoerd in R met de volgende stappen:
 
 Genen worden als significant beschouwd bij een adjusted p-value (padj) van < 0.05 en een |log2FoldChange| > 1
 
-GO enrichment analyse met goseq corrigeert voor selectiebias in RNA-seq data, wat belangrijk is voor een correcte interpretatie van de data[[3]](https://doi.org/10.1186/gb-2010-11-2-r14)
+GO enrichment analyse met goseq corrigeert voor selectiebias in RNA-seq data, wat belangrijk is voor een correcte interpretatie van de data[(Young et al., 2010)](https://doi.org/10.1186/gb-2010-11-2-r14)
 
 ---
 
@@ -54,7 +54,7 @@ Met behulp van goseq werd onderzocht welke biologische processen oververtegenwoo
 
 De sterkst verrijkte GO-term was het Immunoglobulin mediated immune response
 
-Dit betekend dat er verhoogde activiteit van B-cellen en antistofproductie in het synovium van RA-patiënten is. Dit sluit aan bij de bekende rol van auto-antistoffen, zoals ACPA, bij reumatoïde artritis[[4]](https://doi.org/10.1016/j.amjmed.2007.04.005).
+Dit betekend dat er verhoogde activiteit van B-cellen en antistofproductie in het synovium van RA-patiënten is. Dit sluit aan bij de bekende rol van auto-antistoffen, zoals ACPA, bij reumatoïde artritis[(Majithia & Geraci, 2007)](https://doi.org/10.1016/j.amjmed.2007.04.005).
 
 <p align="center">
   <img src="Figuren/GO-ANALYSE-PLOT-EXTENDED-EDITION" alt="Flow" width="600"/>
@@ -82,6 +82,11 @@ Voor vervolgonderzoek wordt aanbevolen om gebruik te maken van een grotere sampl
 ---
 
 ## Databeheer
+
+Voor onderzoek is het belangrijk dat data op een overzichtelijke manier kan worden opgeslagen. Een van de bekendste voorbeelden hiervan is het gebruiken van mapjes. In deze mapjes kunnen dan bestanden van een bepaald type of een bepaalde opdracht worden opgeslagen. Door het gebruik van desbetreffende mapjes is het makkelijk opnieuw te vinden, ook voor anderen. Ook in de ICT is het belangrijk om data goed te ordenen. In dit project worden bijvoorbeeld sommige bestanden gebruikt om andere bestanden te maken. Hierom is het belangrijk goed te weten waar je deze bestanden hebt staan en hoe ze weer gevonden kunnen worden. 
+
+Voor deze casus zijn de bestanden opgedeeld in de mapjes: Figuren, R Files, Rauwe data en de verwerkte data. Op deze manier kan snel het juiste bestand worden gevonden.
+
 
 ---
 
