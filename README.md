@@ -80,7 +80,7 @@ De pathway analyse liet verhoogde expressie zien van meerdere immuungerelateerde
   <em>Figuur 4: KEGG-pathway hsa05323 gevisualiseerd met het pathway commando na het uitvoeren van de GO-analyse</em>
   
   <img src="Figuren/hsa04662.png" alt="Flow" width="600"         
-        align="middle"
+        align="center"
         style="float: left;
           position: relative;
           display: block;
