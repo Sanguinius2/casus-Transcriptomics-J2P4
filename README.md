@@ -7,17 +7,6 @@ Reumatoïde artritis (RA) is een chronische auto-immuunziekte waarbij het immuun
 
 In deze analyse is gebruikgemaakt van RNA-seq data van synoviumbiopten van patiënten met RA en gezonde controles. Het doel was om differentieel tot expressie komende genen en betrokken biologische pathways te identificeren.
 
-
-## 📁 Inhoud mapjes structuur
-
-- `data/raw/` –  
-- `data/processed` - verwerkte datasets gegenereerd met scripts 
-- `R Files/` – R Files om de 
-- `resultaten/` - grafieken en tabellen
-- `bronnen/` - gebruikte bronnen 
-- `README.md` - het document om de tekst hier te genereren
-- `data_Beheer/` - de info over github en waarom het belangrijk is 
-
 ---
 
 ## Introductie
