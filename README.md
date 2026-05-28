@@ -78,16 +78,9 @@ De pathway analyse liet verhoogde expressie zien van meerdere immuungerelateerde
   <img src="Figuren/hsa05323.pathview.png" alt="Flow" width="600"/>
   
   <em>Figuur 4: KEGG-pathway hsa05323 gevisualiseerd met het pathway commando na het uitvoeren van de GO-analyse</em>
-  
-  <img src="Figuren/hsa04662.png" alt="Flow" width="600"         
-        align="center"
-        style="float: left;
-          position: relative;
-          display: block;
-          margin-left: auto;
-          margin-right: auto;
-          z-index: 1;"/>
-  
+  <center>
+    <img src="Figuren/hsa04662.png" alt="Flow" width="600"/>
+  </center>
   <em>Figuur 5: KEGG-Pathway van B cell receptor signaling pathway hsa04662 gevisualiseerd met het pathway commando na het uitvoeren van de GO-analyse</em>
 </p>
 
