@@ -1,4 +1,4 @@
-# RNA-seq analyse van Reumatoïde Artritis (RA)
+# RNA-seq analyse van synoviumweefsel bij reumatoïde artritis
 
 
 # Inleiding
@@ -32,10 +32,12 @@ De analyse werd uitgevoerd in R met de volgende stappen:
 <p align="center">
   <img src="Figuren/Flowchart.png" alt="Flow" width="600"/>
   
-  <em>Figuur 1: Flowchart van gemaakt stappen in deze casus</em>
+  <em>Figuur 1: Flowchart van uitgevoerde stappen binnen deze casus</em>
 </p>
 
 Genen worden als significant beschouwd bij een adjusted p-value (padj) van < 0.05 en een |log2FoldChange| > 1
+
+Voor de R files moet eerst de human genome index+mapping.R worden gerunt en daarna pas GO-analyse.R
 
 GO enrichment analyse met goseq corrigeert voor selectiebias in RNA-seq data, wat belangrijk is voor een correcte interpretatie van de data[(Young et al., 2010)](https://doi.org/10.1186/gb-2010-11-2-r14)
 
@@ -57,7 +59,7 @@ Met behulp van goseq werd onderzocht welke biologische processen oververtegenwoo
 
 De sterkst verrijkte GO-term was het Immunoglobulin mediated immune response
 
-Dit betekend dat er verhoogde activiteit van B-cellen en antistofproductie in het synovium van RA-patiënten is. Dit sluit aan bij de bekende rol van auto-antistoffen, zoals ACPA, bij reumatoïde artritis[(Majithia & Geraci, 2007)](https://doi.org/10.1016/j.amjmed.2007.04.005).
+Dit betekent dat er verhoogde activiteit van B-cellen en antistofproductie in het synovium van RA-patiënten is. Dit sluit aan bij de bekende rol van auto-antistoffen, zoals ACPA, bij reumatoïde artritis[(Majithia & Geraci, 2007)](https://doi.org/10.1016/j.amjmed.2007.04.005).
 
 <p align="center">
   <img src="Figuren/GO-ANALYSE-PLOT-EXTENDED-EDITION" alt="Flow" width="600"/>
@@ -75,18 +77,19 @@ De pathway analyse liet verhoogde expressie zien van meerdere immuungerelateerde
 <p align="center">
   <img src="Figuren/hsa05323.pathview.png" alt="Flow" width="600"/>
   
-  <em>Figuur 4: Pathway van hsa05323 gevisualiseerd met het pathway commando na het uitvoeren van de GO-analyse</em>
+  <em>Figuur 4: KEGG-pathway hsa05323 gevisualiseerd met het pathway commando na het uitvoeren van de GO-analyse</em>
   
   <img src="Figuren/hsa04662.png" alt="Flow" width="600"/>
   
-  <em>Figuur 5: Pathway van B cell receptor signaling pathway hsa04662 gevisualiseerd met het pathway commando na het uitvoeren van de GO-analyse</em>
+  <em>Figuur 5: KEGG-Pathway van B cell receptor signaling pathway hsa04662 gevisualiseerd met het pathway commando na het uitvoeren van de GO-analyse</em>
 </p>
 
 ---
 
 ## Conclusie
 
-De RNA-seq analyse toont aan dat immuun-gerelateerde processen sterk geactiveerd zijn in synoviumweefsel van RA-patiënten. Zowel de GO enrichment analyse als de KEGG pathway analyse wijzen op verhoogde activiteit van B-cellen en antistof-gemedieerde immuunresponsen. Deze resultaten passen goed binnen het bekende ziektebeeld van reumatoïde artritis.
+De RNA-seq analyse toont aan dat immuun-gerelateerde processen sterk geactiveerd zijn in synoviumweefsel van RA-patiënten. Zowel de GO enrichment analyse als de KEGG pathway analyse wijzen op verhoogde activiteit van B-cellen en immunoglobuline-gemedieerde immuunresponsen. Dit sluit aan bij het bekende ziektebeeld van reumatoïde artritis, waarbij B-cellen, auto-antistoffen en ontstekingsprocessen een centrale rol spelen [(Smolen et al., 2016;](https://doi.org/10.1056/NEJMra1507093)[Bugatti et al., 2014)](https://doi.org/10.1155/2014/681678)
+
 Voor vervolgonderzoek wordt aanbevolen om gebruik te maken van een grotere samplegrootte om de statistische betrouwbaarheid van de resultaten te verhogen. Daarnaast kan aanvullend onderzoek naar specifieke immuun-gerelateerde pathways, zoals B-cell receptor signaling en cytokine signaling, meer inzicht geven in de rol van het immuunsysteem bij reumatoïde artritis.
 
 ---
