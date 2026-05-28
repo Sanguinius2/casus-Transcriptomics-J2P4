@@ -76,6 +76,7 @@ De pathway analyse liet verhoogde expressie zien van meerdere immuungerelateerde
   <img src="Figuren/hsa05323.pathview.png" alt="Flow" width="600"/>
   
   <em>Figuur 4: Pathway van hsa05323 gevisualiseerd met het pathway commando na het uitvoeren van de GO-analyse</em>
+  
   <img src="Figuren/hsa04662.png" alt="Flow" width="600"/>
   
   <em>Figuur 5: Pathway van B cell receptor signaling pathway hsa04662 gevisualiseerd met het pathway commando na het uitvoeren van de GO-analyse</em>
