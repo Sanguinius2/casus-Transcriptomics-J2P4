@@ -22,17 +22,17 @@ Voor deze casus zijn de volgende deelvragen opgezet
 Voor deze analyse zijn 4 RNA-seq samples van RA-patiënten en 4 controle samples gebruikt.
 
 De analyse werd uitgevoerd in R met de volgende stappen:
-<p align="center">
-  <img src="Figuren/Flowchart.png" alt="Flow" width="600"/>
-</p>
-De analyse werd uitgevoerd in R met de volgende stappen:
-
 - Aligneren van FASTQ-bestanden tegen het [humane referentiegenoom](https://www.ncbi.nlm.nih.gov/datasets/genome/GCF_000001405.26/) met Rsubread(version 2.24.0)
 - Tellen van reads per gen met featureCounts
 - Differential expression analyse met DESeq2(version 1.50.2)
 - Visualisatie met een volcano plot door EnhancedVolcano(version 1.28.2)
 - Gene Ontology (GO) enrichment analyse met goseq(version 1.62.0)
 - KEGG pathway analyse met pathview(version 1.70.0)
+
+<p align="center">
+  <img src="Figuren/Flowchart.png" alt="Flow" width="600"/>
+  <em>Figuur 1: Flowchart van gemaakt stappen in deze casus</em>
+</p>
 
 Genen worden als significant beschouwd bij een adjusted p-value (padj) van < 0.05 en een |log2FoldChange| > 1
 
@@ -48,6 +48,7 @@ Een volcano plot werd gebruikt om de significant differentieel tot expressie kom
 
 <p align="center">
   <img src="Figuren/VolcanoplotDOCENTGEGEVEN.png" alt="Flow" width="600"/>
+  <em>Figuur 2: Volcano plot met op de X-as de log2fold change en op de Y-as de -log10(padj)</em>
 </p>
 
 Met behulp van goseq werd onderzocht welke biologische processen oververtegenwoordigd waren in de differentieel tot expressie komende genen.
@@ -58,6 +59,7 @@ Dit betekend dat er verhoogde activiteit van B-cellen en antistofproductie in he
 
 <p align="center">
   <img src="Figuren/GO-ANALYSE-PLOT-EXTENDED-EDITION" alt="Flow" width="600"/>
+  <em>Figuur 3: De GO-analyse van de genen die significant actief zijn gesorteerd op percentage verschil in hoeveel genen van een pathway zijn veranderd</em>
 </p>
 
 Met de pathview functie [1.50.0] werden pathways gevisualiseerd die betrokken zijn bij RA. Hierbij werden humane KEGG pathways gebruikt, waaronder:
@@ -69,7 +71,9 @@ De pathway analyse liet verhoogde expressie zien van meerdere immuungerelateerde
 
 <p align="center">
   <img src="Figuren/hsa05323.pathview.png" alt="Flow" width="600"/>
+  <em>Figuur 4: Pathway van hsa05323 gevisualiseerd met het pathway commando na het uitvoeren van de GO-analyse</em>
   <img src="Figuren/hsa04662.png" alt="Flow" width="600"/>
+  <em>Figuur 5: Pathway van B cell receptor signaling pathway hsa04662 gevisualiseerd met het pathway commando na het uitvoeren van de GO-analyse</em>
 </p>
 
 ---
