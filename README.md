@@ -79,7 +79,14 @@ De pathway analyse liet verhoogde expressie zien van meerdere immuungerelateerde
   
   <em>Figuur 4: KEGG-pathway hsa05323 gevisualiseerd met het pathway commando na het uitvoeren van de GO-analyse</em>
   
-  <img src="Figuren/hsa04662.png" alt="Flow" width="600"/>
+  <img src="Figuren/hsa04662.png" alt="Flow" width="600"         
+        align="middle"
+        style="float: left;
+          position: relative;
+          display: block;
+          margin-left: auto;
+          margin-right: auto;
+          z-index: 1;"/>
   
   <em>Figuur 5: KEGG-Pathway van B cell receptor signaling pathway hsa04662 gevisualiseerd met het pathway commando na het uitvoeren van de GO-analyse</em>
 </p>
@@ -90,7 +97,7 @@ De pathway analyse liet verhoogde expressie zien van meerdere immuungerelateerde
 
 De RNA-seq analyse toont aan dat immuun-gerelateerde processen sterk geactiveerd zijn in synoviumweefsel van RA-patiënten. Zowel de GO enrichment analyse als de KEGG pathway analyse wijzen op verhoogde activiteit van B-cellen en immunoglobuline-gemedieerde immuunresponsen. Dit sluit aan bij het bekende ziektebeeld van reumatoïde artritis, waarbij B-cellen, auto-antistoffen en ontstekingsprocessen een centrale rol spelen [(Smolen et al., 2016;](https://doi.org/10.1056/NEJMra1507093)[Bugatti et al., 2014)](https://doi.org/10.1155/2014/681678)
 
-Voor vervolgonderzoek wordt aanbevolen om gebruik te maken van een grotere samplegrootte om de statistische betrouwbaarheid van de resultaten te verhogen. Daarnaast kan aanvullend onderzoek naar specifieke immuun-gerelateerde pathways, zoals B-cell receptor signaling en cytokine signaling, meer inzicht geven in de rol van het immuunsysteem bij reumatoïde artritis.
+Voor vervolgonderzoek wordt aanbevolen om gebruik te maken van een grotere samplegrootte om de statistische betrouwbaarheid van de resultaten te verhogen. Daarnaast kan aanvullend onderzoek naar specifieke immuun-gerelateerde pathways, zoals B-cell receptor signaling en cytokine signaling, meer inzicht geven in de rol die het immuunsysteem bij reumatoïde artritis heeft.
 
 ---
 
