@@ -105,11 +105,15 @@ Voor deze casus zijn de bestanden opgedeeld in de mapjes: Figuren, R Files, Rauw
 
 ## Bronnen
 
+Bugatti, S., Vitolo, B., Caporali, R., Montecucco, C., & Manzo, A. (2014). *B cells in rheumatoid arthritis: from pathogenic players to disease biomarkers*. BioMed Research International, 2014, 681678. https://doi.org/10.1155/2014/681678
+
 Gabriel, S. E. (2001). *The epidemiology of rheumatoid arthritis*. Rheumatic Disease Clinics of North America, 27(2), 269–281. https://doi.org/10.1016/S0889-857X(05)70201-5
 
 Majithia, V., & Geraci, S. A. (2007). *Rheumatoid Arthritis: Diagnosis and Management*. The American Journal of Medicine, 120(11), 936–939. https://doi.org/10.1016/j.amjmed.2007.04.005
 
 Platzer, A., Nussbaumer, T., Karonitsch, T., Smolen, J. S., & Aletaha, D. (2019). *Analysis of gene expression in rheumatoid arthritis and related conditions offers insights into sex-bias, gene biotypes and co-expression patterns*. PLOS ONE, 14(7). https://doi.org/10.1371/journal.pone.0219709
+
+Smolen, J. S., Aletaha, D., McInnes, I. B. (2016). *Rheumatoid arthritis*. New England Journal of Medicine, 374(21), 2023–2038. https://doi.org/10.1056/NEJMra1507093
 
 Young, M. D., Wakefield, M. J., Smyth, G. K., & Oshlack, A. (2010). *Gene ontology analysis for RNA-seq: accounting for selection bias*. Genome Biology, 11, R14. https://doi.org/10.1186/gb-2010-11-2-r14
 
