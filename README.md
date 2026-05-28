@@ -7,6 +7,13 @@ Reumatoïde artritis (RA) is een chronische auto-immuunziekte waarbij het immuun
 
 In deze analyse is gebruikgemaakt van RNA-seq data van synoviumbiopten van patiënten met RA en gezonde controles. Het doel was om differentieel tot expressie komende genen en betrokken biologische pathways te identificeren.
 
+Het doel van deze casus is om met behulp van RNA-seq analyse verschillen in genexpressie tussen synoviumweefsel van patiënten met reumatoïde artritis (RA) en gezonde controles te identificeren. Daarnaast wordt onderzocht welke biologische processen en pathways betrokken zijn bij de ziekte door middel van GO enrichment analyse en KEGG pathway analyse.
+
+Voor deze casus zijn de volgende deelvragen opgezet
+- 1.	Welke genen komen differentieel tot expressie in synoviumweefsel van RA-patiënten vergeleken met gezonde controles?
+- 2.	Welke biologische processen zijn oververtegenwoordigd in de differentieel tot expressie komende genen?
+- 3.	Welke immuun-gerelateerde pathways spelen mogelijk een rol bij reumatoïde artritis?
+
 ---
 
 ## Methoden
@@ -66,7 +73,7 @@ De pathway analyse liet verhoogde expressie zien van meerdere immuungerelateerde
 ## Conclusie
 
 De RNA-seq analyse toont aan dat immuun-gerelateerde processen sterk geactiveerd zijn in synoviumweefsel van RA-patiënten. Zowel de GO enrichment analyse als de KEGG pathway analyse wijzen op verhoogde activiteit van B-cellen en antistof-gemedieerde immuunresponsen. Deze resultaten passen goed binnen het bekende ziektebeeld van reumatoïde artritis.
-
+Voor vervolgonderzoek wordt aanbevolen om gebruik te maken van een grotere samplegrootte om de statistische betrouwbaarheid van de resultaten te verhogen. Daarnaast kan aanvullend onderzoek naar specifieke immuun-gerelateerde pathways, zoals B-cell receptor signaling en cytokine signaling, meer inzicht geven in de rol van het immuunsysteem bij reumatoïde artritis.
 ## Databeheer
 
 
