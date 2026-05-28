@@ -9,12 +9,6 @@ In deze analyse is gebruikgemaakt van RNA-seq data van synoviumbiopten van pati�
 
 ---
 
-## Introductie
-
-Deze GitHub pagina gaat over Rheuma. Met behulp van de R files kan je zelf ook *UITVOEREN!!!!*.
-
-Als je naar het menselijk genoom wil, [klik hier](https://www.ncbi.nlm.nih.gov/datasets/genome/GCF_000001405.26/) om naar .
-
 ## Methoden
 Voor deze analyse zijn 4 RNA-seq samples van RA-patiënten en 4 controle samples gebruikt.
 
@@ -24,7 +18,7 @@ De analyse werd uitgevoerd in R met de volgende stappen:
 </p>
 De analyse werd uitgevoerd in R met de volgende stappen:
 
-- Aligneren van FASTQ-bestanden tegen het humane referentiegenoom met Rsubread(version 2.24.0)
+- Aligneren van FASTQ-bestanden tegen het [humane referentiegenoom](https://www.ncbi.nlm.nih.gov/datasets/genome/GCF_000001405.26/) met Rsubread(version 2.24.0)
 - Tellen van reads per gen met featureCounts
 - Differential expression analyse met DESeq2(version 1.50.2)
 - Visualisatie met een volcano plot door EnhancedVolcano(version 1.28.2)
@@ -33,8 +27,9 @@ De analyse werd uitgevoerd in R met de volgende stappen:
 
 Genen worden als significant beschouwd bij een adjusted p-value (padj) van < 0.05 en een |log2FoldChange| > 1
 
+---
 
-## 📊 Resultaten
+## Resultaten
 
 De differential expression analyse liet duidelijke verschillen zien tussen RA-samples en controles. Zowel opgereguleerde als neergereguleerde genen werden geïdentificeerd.
 
@@ -65,6 +60,8 @@ De pathway analyse liet verhoogde expressie zien van meerdere immuungerelateerde
   <img src="Figuren/hsa05323.pathview.png" alt="Flow" width="600"/>
   <img src="Figuren/hsa04662.png" alt="Flow" width="600"/>
 </p>
+
+---
 
 ## Conclusie
 
