@@ -39,24 +39,26 @@ ________________________________________
 
 #Software
 
-Alle analyses zijn uitgevoerd in R versie 4.6.0 binnen RStudio.
+Alle analyses zijn uitgevoerd in R versie 4.6.0 binnen [RStudio](https://docs.posit.co/ide/user/#rstudio-ide-oss-downloads).
 De volgende packages zijn gebruikt tijdens de analyse:
 
 
 | Package |	Versie | Doel |
 | :------- | :-----: | :----: |
-| Rsubread |2.24.0 | Alignering en featureCounts |
-| Rsamtools | 2.28.0	| Verwerken van BAM-bestanden |
-| DESeq2 | 1.50.2	|Differential expression analyse|
-| EnhancedVolcano | 1.28.2	| Volcano plot |
-| goseq | 1.62.0	|   GO enrichment analyse |
-| pathview | 1.70.0	| KEGG pathway visualisatie |
-| KEGGREST | 1.52.2	| Ophalen KEGG informatie |
-| biomaRt | 2.68.0	| Genannotaties |
-| org.Hs.eg.db | 3.23.1	| Entrez-ID annotaties |
-| GO.db | 3.23.1	| Gene Ontology database |
+| [Rsubread](https://www.bioconductor.org/packages//release/bioc/html/Rsubread.html) |2.24.0 | Alignering en featureCounts |
+| [Rsamtools](https://bioconductor.org/packages/release/bioc/html/Rsamtools.html) | 2.28.0	| Verwerken van BAM-bestanden |
+| [DESeq2](https://bioconductor.org/packages/release/bioc/html/DESeq2.html) | 1.50.2	|Differential expression analyse|
+| [EnhancedVolcano](https://bioconductor.org/packages/release/bioc/html/EnhancedVolcano.html) | 1.28.2	| Volcano plot |
+| [goseq](https://bioconductor.org/packages/release/bioc/html/goseq.html) | 1.62.0	|   GO enrichment analyse |
+| [pathview](https://bioconductor.org/packages/release/bioc/html/pathview.html) | 1.70.0	| KEGG pathway visualisatie |
+| [KEGGREST](https://bioconductor.org/packages//release/bioc/html/KEGGREST.html) | 1.52.2	| Ophalen KEGG informatie |
+| [biomaRt](https://bioconductor.org/packages/release/bioc/html/biomaRt.html) | 2.68.0	| Genannotaties |
+| [org.Hs.eg.db](https://bioconductor.org/packages/release/data/annotation/html/org.Hs.eg.db.html) | 3.23.1	| Entrez-ID annotaties |
+| [GO.db](https://bioconductor.org/packages/release/data/annotation/html/GO.db.html) | 3.23.1	| Gene Ontology database |
+| [tidyverse](https://cran.r-project.org/web/packages/tidyverse/index.html) | 2.0.0 | Dataverwerking en visualisatie |
+| [dplyr](https://cran.r-project.org/web/packages/dplyr/index.html) | 1.2.1 | Dataverwerking en visualisatie |
+| [ggplot2](https://cran.r-project.org/web/packages/ggplot2/ggplot2.pdf) | 4.0.3 | Dataverwerking en visualisatie |
 
-tidyverse, dplyr, ggplot2	CRAN	Dataverwerking en visualisatie
 ________________________________________
 #Referentiegenoom
 
