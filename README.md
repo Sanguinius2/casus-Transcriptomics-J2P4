@@ -60,55 +60,19 @@ De volgende packages zijn gebruikt tijdens de analyse:
 | [ggplot2](https://cran.r-project.org/web/packages/ggplot2/ggplot2.pdf) | 4.0.3 | Dataverwerking en visualisatie |
 
 ________________________________________
-#Referentiegenoom
 
-Voor de alignering is gebruikgemaakt van het humane referentiegenoom GCF_000001405.40_GRCh38.p14.
-Dit referentiegenoom is gedownload via de [NCBI Genome Database](https://www.ncbi.nlm.nih.gov/datasets/genome/GCF_000001405.40/).
-Voordat de reads konden worden uitgelijnd, is met behulp van de functie buildindex() uit het package Rsubread een indexbestand gemaakt. Deze index wordt vervolgens gebruikt om alle RNA-seq reads efficiënt tegen het referentiegenoom uit te lijnen.
-________________________________________
-#Alignering
+De analyse is uitgevoerd met R 4.6.0 in het script Main_R_File_transcriptomics.R.
+RNA-seq reads van vier controles en vier patiënten met reumatoïde artritis werden uitgelijnd tegen het humane referentiegenoom GCF_000001405.40_GRCh38.p14 van [NCBI](https://www.ncbi.nlm.nih.gov/datasets/genome/GCF_000001405.40/) met Rsubread.
+Hiervoor werd eerst een genome-index opgebouwd met buildindex(), waarna de FASTQ-bestanden werden gealigneerd met align().
+De resulterende .BAM-bestanden werden vervolgens gekwantificeerd met featureCounts, waarbij een count matrix op genniveau werd gegenereerd.
+Differentiële genexpressie werd bepaald met DESeq2, waarbij genen als significant werden beschouwd bij een adjusted p-value < 0,05 en een |log2FoldChange| > 1.
+De resultaten worden opgeslagen als een CSV-bestand en gevisualiseerd met een volcano plot, gemaakt met EnhancedVolcano.
+Vervolgens werd met goseq een Gene Ontology enrichment analyse uitgevoerd.
+Hierbij werd gecorrigeerd voor genlengtebias met behulp van biomaRt, waarna de tien meest verrijkte GO Biological Process-termen werden gevisualiseerd.
+Ten slotte werden de differentieel tot expressie komende genen geprojecteerd op humane KEGG-pathways met pathview.
+Hiervoor werden gen-symbolen omgezet naar Entrez-ID's met org.Hs.eg.db.
+De pathwayfiguren en overige resultaten worden automatisch opgeslagen in de repository.
 
-De acht paired-end FASTQ-bestanden zijn afzonderlijk uitgelijnd tegen het humane referentiegenoom met de functie align() uit de package Rsubread.
-Voor ieder sample wordt een afzonderlijk .BAM-bestand aangemaakt.
-De analyse bestaat uit vier controlesamples en vier samples afkomstig van patiënten met reumatoïde artritis.
-De gegenereerde .BAM-bestanden worden opgeslagen in de map [Verwerkte Data](Verwerkte%20Data/.BAM%20files), zodat deze later opnieuw gebruikt kunnen worden zonder de alignering opnieuw uit te voeren.
-________________________________________
-#Read quantificatie
-
-Na de alignering wordt voor ieder gen het aantal gemapte reads bepaald met behulp van featureCounts.
-Hierbij wordt gebruikgemaakt van een GTF-bestand (genomic.gtf), waarbij reads worden samengevoegd tot gen-niveau (useMetaFeatures = TRUE).
-De resulterende count matrix wordt opgeslagen als Ref_Human_genome.csv
-Deze matrix bevat voor ieder gen het aantal reads per sample.
-________________________________________
-#Differential expression analyse
-
-Differentiële genexpressie werd bepaald met behulp van het package [DESeq2](https://bioconductor.org/packages/release/bioc/html/DESeq2.html). Na het aanmaken van het DESeqDataSet object werd de analyse uitgevoerd met de functie DESeq().
-Voor ieder gen werden vervolgens de fold change, standaardfout, wald-statistiek, p-waarde en adjusted p-value berekend.
-Genen werden als significant beschouwd wanneer de adjusted p-value < 0,05 en |log2FoldChange| > 1
-De volledige resultaten worden opgeslagen als .csv bestand.
-________________________________________
-#Volcano plot
-
-Om de differentiële genexpressie te visualiseren is gebruikgemaakt van het package [EnhancedVolcano](https://bioconductor.org/packages/release/bioc/html/EnhancedVolcano.html).
-De volcano plot toont voor ieder gen de log2FoldChange en de adjusted p-value.
-Hiermee worden zowel sterk opgereguleerde als sterk neerwaarts gereguleerde genen zichtbaar.
-Het figuur wordt automatisch opgeslagen als het R script wordt gerund.
-________________________________________
-#Gene Ontology enrichment analyse
-
-Om te bepalen welke biologische processen oververtegenwoordigd zijn binnen de significant differentieel tot expressie komende genen, is een GO enrichment analyse uitgevoerd met [goseq](https://bioconductor.org/packages/release/bioc/html/goseq.html).
-Omdat RNA-seq analyses gevoelig zijn voor bias door verschillen in genlengte [(Young et al., 2010)](https://doi.org/10.1186/gb-2010-11-2-r14), zijn eerst de genlengtes opgehaald via biomaRt.
-Met behulp van nullp() wordt vervolgens gecorrigeerd voor deze lengtebias.
-Daarna wordt met goseq() onderzocht welke GO Biological Process-termen significant verrijkt zijn.
-De tien meest significante GO-termen worden vervolgens weergegeven in een scatterplot waarin zowel de oververtegenwoordigings-p-waarde als het percentage veranderde genen per GO-term wordt weergegeven.
-Het figuur wordt automatisch opgeslagen als het R script wordt gerund.
-________________________________________
-#KEGG pathway analyse
-
-Om de differentieel tot expressie komende genen biologisch te interpreteren is een KEGG pathway analyse uitgevoerd met pathview.
-Eerst worden de gen-symbolen automatisch omgezet naar Entrez Gene IDs met behulp van het package [org.Hs.eg.db](https://bioconductor.org/packages/release/data/annotation/html/org.Hs.eg.db.html).
-Vervolgens worden de log2FoldChanges geprojecteerd op geselecteerde humane KEGG pathways.
-De pathwayfiguren worden automatisch opgeslagen in de map [Figuren](Figuren).
 
 ---
 
