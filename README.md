@@ -17,7 +17,7 @@ Voor deze casus zijn de volgende deelvragen opgezet
 - 	Welke immuun-gerelateerde pathways spelen mogelijk een rol bij reumatoïde artritis?
 
 ---
-[humane referentiegenoom](https://www.ncbi.nlm.nih.gov/datasets/genome/GCF_000001405.40/)
+
 ## Methoden
 De volledige analyse is uitgevoerd met het script [Main_R_File_transcriptomics.R](R files/Main_R_File_transcriptomics.R). Dit script voert de RNA-seq analyse uit vanaf de alignering van de ruwe FASTQ-bestanden tot en met de differentiële genexpressieanalyse, Gene Ontology (GO) enrichment analyse en KEGG pathway analyse.
 De stappen van deze casus bestaan uit de volgende onderdelen(zie ook Figuur 1):
@@ -36,6 +36,7 @@ De stappen van deze casus bestaan uit de volgende onderdelen(zie ook Figuur 1):
   <em>Figuur 1: Flowchart van uitgevoerde stappen binnen deze casus</em>
 </p>
 ________________________________________
+
 #Software
 
 Alle analyses zijn uitgevoerd in R versie 4.6.0 binnen RStudio.
@@ -60,8 +61,8 @@ ________________________________________
 #Referentiegenoom
 
 Voor de alignering is gebruikgemaakt van het humane referentiegenoom:
-GCF_000001405.40_GRCh38.p14
-Dit referentiegenoom is gedownload via de NCBI Genome Database.
+GCF_000001405.40_GRCh38.p14.
+Dit referentiegenoom is gedownload via de [NCBI Genoma Database](https://www.ncbi.nlm.nih.gov/datasets/genome/GCF_000001405.40/).
 Voordat de reads konden worden uitgelijnd, is met behulp van de functie buildindex() uit het package Rsubread een indexbestand opgebouwd. Deze index wordt vervolgens gebruikt om alle RNA-seq reads efficiënt tegen het referentiegenoom uit te lijnen.
 ________________________________________
 #Alignering
