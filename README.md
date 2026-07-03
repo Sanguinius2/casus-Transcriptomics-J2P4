@@ -22,25 +22,27 @@ Voor deze casus zijn de volgende deelvragen opgezet
 
 ## Methoden
 De volledige analyse is uitgevoerd met het script [Main_R_File_transcriptomics.R](R_script/Main_R_File_transcriptomics.R). Dit script voert de RNA-seq analyse uit vanaf de alignering van de ruwe FASTQ-bestanden tot en met de differentiële genexpressieanalyse, Gene Ontology (GO) enrichment analyse en KEGG pathway analyse.
-De stappen van deze casus bestaan uit de volgende onderdelen(zie ook Figuur 1):
-1.	Installeren en laden van de benodigde R-packages.
-2.	Opbouwen van een index van het humane referentiegenoom (GRCh38.p14).
-3.	Aligneren van paired-end FASTQ-bestanden tegen het referentiegenoom.
-4.	Kwantificeren van reads per gen met featureCounts.
-5.	Aanmaken van een count matrix.
-6.	Uitvoeren van de differentiële genexpressieanalyse met DESeq2.
-7.	Visualiseren van de resultaten met een volcano plot.
-8.	Uitvoeren van een Gene Ontology enrichment analyse.
-9.	Visualiseren van relevante KEGG pathways met pathview.
+De stappen van deze casus bestaan uit de volgende onderdelen(zie ook Figuur 1).
+
+Alle analyses zijn uitgevoerd in R versie 4.6.0 binnen [RStudio](https://docs.posit.co/ide/user/#rstudio-ide-oss-downloads) met behulp van de packages in tabel 1.
+RNA-seq reads van vier controles en vier patiënten met reumatoïde artritis werden uitgelijnd tegen het humane referentiegenoom GCF_000001405.40_GRCh38.p14 van [NCBI](https://www.ncbi.nlm.nih.gov/datasets/genome/GCF_000001405.40/) met Rsubread.
+Hiervoor werd eerst een genome-index opgebouwd met buildindex(), waarna de FASTQ-bestanden werden gealigneerd met align().
+De resulterende .BAM-bestanden werden vervolgens gekwantificeerd met featureCounts, waarbij een count matrix op genniveau werd gegenereerd.
+Differentiële genexpressie werd bepaald met DESeq2, waarbij genen als significant werden beschouwd bij een adjusted p-value < 0,05 en een |log2FoldChange| > 1.
+
+De resultaten worden opgeslagen als een CSV-bestand en gevisualiseerd met een volcano plot, gemaakt met EnhancedVolcano.
+Vervolgens werd met goseq een Gene Ontology enrichment analyse uitgevoerd.
+Hierbij werd gecorrigeerd voor genlengtebias met behulp van biomaRt, waarna de tien meest verrijkte GO Biological Process-termen werden gevisualiseerd.
+Ten slotte werden de differentieel tot expressie komende genen geprojecteerd op humane KEGG-pathways met pathview.
+Hiervoor werden gen-symbolen omgezet naar Entrez-ID's met org.Hs.eg.db.
+De pathwayfiguren en overige resultaten worden automatisch opgeslagen in de repository.
+
 <p align="center">
   <img src="Figuren/Flowchart.png" alt="Flow" width="600"/>
   
   <em>Figuur 1: Flowchart van uitgevoerde stappen binnen deze casus</em>
 </p>
 
-
-Alle analyses zijn uitgevoerd in R versie 4.6.0 binnen [RStudio](https://docs.posit.co/ide/user/#rstudio-ide-oss-downloads).
-De volgende packages zijn gebruikt tijdens de analyse:
 
 *Tabel 1: Alle Packages die in deze casus zijn gebruikt met het versienummer en doel van de packages.*
 | Package |	Versie | Doel |
@@ -58,20 +60,6 @@ De volgende packages zijn gebruikt tijdens de analyse:
 | [tidyverse](https://cran.r-project.org/web/packages/tidyverse/index.html) | 2.0.0 | Dataverwerking en visualisatie |
 | [dplyr](https://cran.r-project.org/web/packages/dplyr/index.html) | 1.2.1 | Dataverwerking en visualisatie |
 | [ggplot2](https://cran.r-project.org/web/packages/ggplot2/ggplot2.pdf) | 4.0.3 | Dataverwerking en visualisatie |
-
-________________________________________
-
-De analyse is uitgevoerd met R 4.6.0 in het script Main_R_File_transcriptomics.R.
-RNA-seq reads van vier controles en vier patiënten met reumatoïde artritis werden uitgelijnd tegen het humane referentiegenoom GCF_000001405.40_GRCh38.p14 van [NCBI](https://www.ncbi.nlm.nih.gov/datasets/genome/GCF_000001405.40/) met Rsubread.
-Hiervoor werd eerst een genome-index opgebouwd met buildindex(), waarna de FASTQ-bestanden werden gealigneerd met align().
-De resulterende .BAM-bestanden werden vervolgens gekwantificeerd met featureCounts, waarbij een count matrix op genniveau werd gegenereerd.
-Differentiële genexpressie werd bepaald met DESeq2, waarbij genen als significant werden beschouwd bij een adjusted p-value < 0,05 en een |log2FoldChange| > 1.
-De resultaten worden opgeslagen als een CSV-bestand en gevisualiseerd met een volcano plot, gemaakt met EnhancedVolcano.
-Vervolgens werd met goseq een Gene Ontology enrichment analyse uitgevoerd.
-Hierbij werd gecorrigeerd voor genlengtebias met behulp van biomaRt, waarna de tien meest verrijkte GO Biological Process-termen werden gevisualiseerd.
-Ten slotte werden de differentieel tot expressie komende genen geprojecteerd op humane KEGG-pathways met pathview.
-Hiervoor werden gen-symbolen omgezet naar Entrez-ID's met org.Hs.eg.db.
-De pathwayfiguren en overige resultaten worden automatisch opgeslagen in de repository.
 
 
 ---
