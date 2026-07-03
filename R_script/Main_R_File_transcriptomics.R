@@ -1,5 +1,5 @@
 #eerst naar juiste directorie,dus waar je al je bestanden hebt staan
-setwd("C:/Users/sande/OneDrive - NHL Stenden/school/jaar 2/Periode 4/casus/verwerkte data/.BAM files")
+setwd("C:/Users/eigen/naam/naar/juiste/route")
 #controle of het inderdaad juiste mapje is
 getwd()
 #install alle packages die nodig zijn
