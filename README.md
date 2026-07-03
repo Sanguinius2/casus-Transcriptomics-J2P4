@@ -42,7 +42,7 @@ De stappen van deze casus bestaan uit de volgende onderdelen(zie ook Figuur 1):
 Alle analyses zijn uitgevoerd in R versie 4.6.0 binnen [RStudio](https://docs.posit.co/ide/user/#rstudio-ide-oss-downloads).
 De volgende packages zijn gebruikt tijdens de analyse:
 
-Tabel 1: Alle Packages die in deze casus zijn gebruikt met het versienummer en doel van de packages.
+*Tabel 1: Alle Packages die in deze casus zijn gebruikt met het versienummer en doel van de packages.*
 | Package |	Versie | Doel |
 | :------- | :-----: | :----: |
 | [Rsubread](https://www.bioconductor.org/packages//release/bioc/html/Rsubread.html) |2.24.0 | Alignering en featureCounts |
