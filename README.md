@@ -37,14 +37,12 @@ De stappen van deze casus bestaan uit de volgende onderdelen(zie ook Figuur 1):
   
   <em>Figuur 1: Flowchart van uitgevoerde stappen binnen deze casus</em>
 </p>
-________________________________________
 
-#Software
 
 Alle analyses zijn uitgevoerd in R versie 4.6.0 binnen [RStudio](https://docs.posit.co/ide/user/#rstudio-ide-oss-downloads).
 De volgende packages zijn gebruikt tijdens de analyse:
 
-
+Tabel 1: Alle Packages die in deze casus zijn gebruikt met het versienummer en doel van de packages.
 | Package |	Versie | Doel |
 | :------- | :-----: | :----: |
 | [Rsubread](https://www.bioconductor.org/packages//release/bioc/html/Rsubread.html) |2.24.0 | Alignering en featureCounts |
@@ -209,7 +207,7 @@ Het script Main_R_File_transcriptomics.R bevat commentaarregels waarin iedere st
 De README beschrijft de gebruikte dataset, software, workflow en repositorystructuur, zodat andere onderzoekers de analyse eenvoudig kunnen volgen en gebruiken voor eigen onderzoek.
 Een ander voordeel van GitHub is dat het open source is, wat inhoud dat iedereen er bij kan. Dit is handig omdat andere onderzoekers het project makkelijk kunnen nadoen en inzien.
 
-Wat wel belangrijk is, is om te denken aan de veiligheid van persoongegevens en andere gevoelige informatie
+Wat wel belangrijk is, is om te denken aan de veiligheid van persoongegevens en andere gevoelige informatie.
 De gebruikte RNA-seq data van deze casus bijvoorbeeld zijn afkomstig uit een eerder gepubliceerd onderzoek en bevatten geen herleidbare persoonsgegevens, dit is belangrijk omdat niemand wil dat zijn of haar persoonsgegevens zomaar op straat komen te liggen.
 Hierom is het belangrijk om persoonsgegevens te verwijderen of onherkenbaar te maken voordat de code of resultaten online worden gezet.
 
