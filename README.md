@@ -122,9 +122,10 @@ De meest significante GO-term was Immunoglobulin mediated immune response, wat e
 Verder liet de KEGG pathway analyse verhoogde activiteit zien binnen de pathways Rheumatoid arthritis (hsa05323) en B cell receptor signaling pathway (hsa04662).
 
 Deze bevindingen beantwoorden de onderzoeksvragen en laten zien dat zowel specifieke genen als immuun-gerelateerde biologische processen en signaalroutes verschillen tussen RA-patiënten en gezonde controles.
-De resultaten sluiten goed aan bij de huidige kennis over de pathogenese van reumatoïde artritis. Het is bekend dat B-cellen, auto-antistoffen en chronische ontstekingsprocessen een centrale rol spelen bij het ontstaan en onderhouden van de ziekte [(Smolen et al., 2016)](https://doi.org/10.1056/NEJMra1507093).
+De resultaten sluiten goed aan bij de huidige kennis over reumatoïde artritis. Het is bekend dat B-cellen, auto-antistoffen en chronische ontstekingsprocessen een centrale rol spelen bij het ontstaan en onderhouden van de ziekte [(Smolen et al., 2016)](https://doi.org/10.1056/NEJMra1507093).
 Ook eerdere transcriptomicsstudies hebben laten zien dat genexpressie in synoviumweefsel van RA-patiënten wordt gekenmerkt door een verhoogde activiteit van immuun-gerelateerde genen en pathways, waaronder B-celactivatie en antistofgemedieerde immuunresponsen [(Platzer et al., 2019)](https://doi.org/10.1371/journal.pone.0219709). 
-De verrijking van de GO-term Immunoglobulin mediated immune response en de gevonden KEGG pathways zijn daarom in overeenstemming met eerder gepubliceerde resultaten. Daarnaast onderstrepen deze bevindingen het belang van B-cellen als potentiële biomarkers en therapeutische aangrijpingspunten bij RA [(Bugatti et al., 2014)](https://doi.org/10.1155/2014/681678).
+De verrijking van de GO-term Immunoglobulin mediated immune response en de gevonden KEGG pathways zijn daarom in overeenstemming met eerder gepubliceerde resultaten.
+Daarnaast geven deze bevindingen het belang aan van B-cellen als potentiële biomarkers en therapeutische aangrijpingspunten bij RA [(Bugatti et al., 2014)](https://doi.org/10.1155/2014/681678).
 
 Een beperking van deze studie is het relatief kleine aantal geanalyseerde samples, waardoor de statistische kracht beperkt is en kleine verschillen mogelijk niet zijn waargenomen.
 
