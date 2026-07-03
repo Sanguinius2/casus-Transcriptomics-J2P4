@@ -3,7 +3,9 @@
 
 # Inleiding
 
-Reumatoïde artritis (RA) is een chronische auto-immuunziekte waarbij het immuunsysteem lichaamseigen gewrichten aanvalt. Hierdoor ontstaat ontsteking van het synovium (gewrichtsslijmvlies), wat uiteindelijk kan leiden tot gewrichtsschade. Hoewel de exacte oorzaak van RA nog niet volledig bekend is, spelen genetische factoren, omgevingsfactoren en ontregeling van het immuunsysteem een belangrijke rol[(Gabriel, 2001; ](https://doi.org/10.1016/S0889-857X(05)70201-5)[Platzer et al., 2019)](https://doi.org/10.1371/journal.pone.0219709).
+Reumatoïde artritis (RA) is een chronische auto-immuunziekte waarbij het immuunsysteem lichaamseigen gewrichten aanvalt.
+Hierdoor ontstaat ontsteking van het synovium (gewrichtsslijmvlies), wat uiteindelijk kan leiden tot gewrichtsschade.
+Hoewel de exacte oorzaak van RA nog niet volledig bekend is, spelen genetische factoren, omgevingsfactoren en ontregeling van het immuunsysteem een belangrijke rol[(Gabriel, 2001; ](https://doi.org/10.1016/S0889-857X(05)70201-5)[Platzer et al., 2019)](https://doi.org/10.1371/journal.pone.0219709).
 
 RA is bekend door complexe veranderingen in genexpressie in het synoviale weefsel, waarbij vooral immuun-gerelateerde pathways sterk geactiveerd zijn. RNA-seq studies hebben aangetoond dat deze veranderingen op transcriptieniveau inzichten kunnen geven in ziekteactiviteit en onderliggende biologische mechanismen[(Platzer et al., 2019)](https://doi.org/10.1371/journal.pone.0219709).
 
@@ -119,8 +121,7 @@ ________________________________________
 #Differential expression analyse
 
 Het doel van de differentiële genexpressieanalyse was het identificeren van genen waarvan de expressie significant verschilde tussen RA-patiënten en gezonde controles.
-De analyse liet duidelijke verschillen in genexpressie zien tussen beide groepen. Er waren 2085 opgereguleerde genen en 2487 neerwaarts gereguleerde genen geïdentificeerd, wat aangeeft dat meerdere biologische processen verschillen tussen gezond weefsel en weefsel afkomstig van patiënten met reumatoïde artritis.
-De resultaten zijn weergegeven in een volcano plot (Figuur 2). Hierin wordt voor ieder gen de log2FoldChange uitgezet tegen de negatieve log10 van de adjusted p-value. Hierdoor zijn zowel de mate van expressieverandering als de statistische significantie in één figuur zichtbaar.
+De analyse (Figuur 2) liet duidelijke verschillen in genexpressie zien tussen beide groepen. Er waren 2085 opgereguleerde genen en 2487 neerwaarts gereguleerde genen geïdentificeerd, wat aangeeft dat meerdere biologische processen verschillen tussen gezond weefsel en weefsel afkomstig van patiënten met reumatoïde artritis.
 
 
 <p align="center">
@@ -133,10 +134,8 @@ ________________________________________
 #Gene Ontology enrichment analyse
 
 Na het identificeren van de differentieel tot expressie komende genen werd onderzocht welke biologische processen significant oververtegenwoordigd waren. Hiervoor werd een Gene Ontology (GO) enrichment analyse uitgevoerd.
-De sterkst verrijkte GO-term was het Immunoglobulin mediated immune response.
-Deze verrijking wijst op een verhoogde activiteit van genen die betrokken zijn bij immunoglobuline-gemedieerde immuunresponsen. Dit ondersteunt het bekende ziektebeeld van reumatoïde artritis, waarbij B-cellen en auto-antistoffen een belangrijke rol spelen in de pathogenese van de ziekte.
-De GO-analyse liet daarnaast zien dat meerdere immuungerelateerde processen oververtegenwoordigd waren binnen de differentieel tot expressie komende genen.
-De resultaten van de GO enrichment analyse zijn weergegeven in Figuur 3.
+De sterkst verrijkte GO-term was het Immunoglobulin mediated immune response(Figuur 3).
+De GO-analyse liet zien dat meerdere immuungerelateerde processen oververtegenwoordigd waren binnen de differentieel tot expressie komende genen.
 
 <p align="center">
   <img src="Figuren/GO-ANALYSE-PLOT-EXTENDED-EDITION" alt="Flow" width="600"/>
@@ -149,7 +148,6 @@ ________________________________________
 
 Om de biologische betekenis van de differentieel tot expressie komende genen verder te interpreteren, werd een KEGG pathway analyse uitgevoerd.
 De pathway analyse liet verhoogde expressie zien van meerdere genen die betrokken zijn bij ontstekingsreacties en adaptieve immuunresponsen. Zowel de pathway Rheumatoid arthritis als de B cell receptor signaling pathway bevatten meerdere genen met verhoogde expressie in de RA-groep ten opzichte van de controles.
-Deze resultaten sluiten aan bij de bevindingen uit de GO enrichment analyse en ondersteunen het beeld dat B-cellen en immunoglobuline-gemedieerde immuunprocessen een belangrijke rol spelen bij reumatoïde artritis.
 
 <p align="center">
   <img src="Figuren/hsa05323.pathview.png" alt="Flow" width="600"/>
@@ -166,10 +164,16 @@ Deze resultaten sluiten aan bij de bevindingen uit de GO enrichment analyse en o
 
 ## Conclusie
 
-Het doel van deze studie was het identificeren van verschillen in genexpressie tussen synoviumweefsel van patiënten met reumatoïde artritis (RA) en gezonde controles met behulp van een RNA-seq analyse. De differentiële genexpressieanalyse liet zien dat meerdere genen significant verschillend tot expressie kwamen tussen beide groepen.
-De Gene Ontology (GO) enrichment analyse toonde aan dat voornamelijk immuun-gerelateerde biologische processen anders waren tussen de twee groepen. De meest significante GO-term was Immunoglobulin mediated immune response, wat een verhoogde activiteit van B-cellen en antistofgemedieerde afweermechanismen. Verder liet de KEGG pathway analyse verhoogde activiteit zien binnen de pathways Rheumatoid arthritis (hsa05323) en B cell receptor signaling pathway (hsa04662). Deze bevindingen beantwoorden de onderzoeksvragen en laten zien dat zowel specifieke genen als immuun-gerelateerde biologische processen en signaalroutes verschillen tussen RA-patiënten en gezonde controles.
-De resultaten sluiten goed aan bij de huidige kennis over de pathogenese van reumatoïde artritis. Het is bekend dat B-cellen, auto-antistoffen en chronische ontstekingsprocessen een centrale rol spelen bij het ontstaan en onderhouden van de ziekte (Smolen et al., 2016). Ook eerdere transcriptomicsstudies hebben laten zien dat genexpressie in synoviumweefsel van RA-patiënten wordt gekenmerkt door een verhoogde activiteit van immuun-gerelateerde genen en pathways, waaronder B-celactivatie en antistofgemedieerde immuunresponsen (Platzer et al., 2019). De verrijking van de GO-term Immunoglobulin mediated immune response en de gevonden KEGG pathways zijn daarom in overeenstemming met eerder gepubliceerde resultaten. Daarnaast onderstrepen deze bevindingen het belang van B-cellen als potentiële biomarkers en therapeutische aangrijpingspunten bij RA (Bugatti et al., 2014).
-Een beperking van deze studie is het relatief kleine aantal geanalyseerde samples, waardoor de statistische kracht beperkt is en minder subtiele verschillen mogelijk niet zijn gedetecteerd. Daarnaast is voor de differentiële genexpressieanalyse gebruikgemaakt van een door de docent aangeleverde count matrix, terwijl de eerdere stappen van de workflow zijn uitgevoerd op de oorspronkelijke RNA-seq data. Hoewel deze werkwijze binnen de casus is verantwoord en duidelijk is gedocumenteerd, kan het gebruik van één consistente dataset de reproduceerbaarheid verder verbeteren.
+Het doel van deze studie was het identificeren van verschillen in genexpressie tussen synoviumweefsel van patiënten met reumatoïde artritis (RA) en gezonde controles met behulp van een RNA-seq analyse.
+De differentiële genexpressieanalyse liet zien dat meerdere genen significant verschillend tot expressie kwamen tussen beide groepen.
+De Gene Ontology (GO) enrichment analyse toonde aan dat voornamelijk immuun-gerelateerde biologische processen anders waren tussen de twee groepen.
+De meest significante GO-term was Immunoglobulin mediated immune response, wat een verhoogde activiteit van B-cellen en antistofgemedieerde afweermechanismen. Verder liet de KEGG pathway analyse verhoogde activiteit zien binnen de pathways Rheumatoid arthritis (hsa05323) en B cell receptor signaling pathway (hsa04662). Deze bevindingen beantwoorden de onderzoeksvragen en laten zien dat zowel specifieke genen als immuun-gerelateerde biologische processen en signaalroutes verschillen tussen RA-patiënten en gezonde controles.
+De resultaten sluiten goed aan bij de huidige kennis over de pathogenese van reumatoïde artritis. Het is bekend dat B-cellen, auto-antistoffen en chronische ontstekingsprocessen een centrale rol spelen bij het ontstaan en onderhouden van de ziekte [(Smolen et al., 2016)](https://doi.org/10.1056/NEJMra1507093).
+Ook eerdere transcriptomicsstudies hebben laten zien dat genexpressie in synoviumweefsel van RA-patiënten wordt gekenmerkt door een verhoogde activiteit van immuun-gerelateerde genen en pathways, waaronder B-celactivatie en antistofgemedieerde immuunresponsen [(Platzer et al., 2019)](https://doi.org/10.1371/journal.pone.0219709). 
+De verrijking van de GO-term Immunoglobulin mediated immune response en de gevonden KEGG pathways zijn daarom in overeenstemming met eerder gepubliceerde resultaten. Daarnaast onderstrepen deze bevindingen het belang van B-cellen als potentiële biomarkers en therapeutische aangrijpingspunten bij RA [(Bugatti et al., 2014)](https://doi.org/10.1155/2014/681678).
+Een beperking van deze studie is het relatief kleine aantal geanalyseerde samples, waardoor de statistische kracht beperkt is en minder subtiele verschillen mogelijk niet zijn gedetecteerd.
+Daarnaast is voor de differentiële genexpressieanalyse gebruikgemaakt van een door de docent aangeleverde count matrix, terwijl de eerdere stappen van de workflow zijn uitgevoerd op de oorspronkelijke RNA-seq data.
+Hoewel deze werkwijze binnen de casus is verantwoord en duidelijk is gedocumenteerd, kan het gebruik van één consistente dataset de reproduceerbaarheid verder verbeteren.
 ________________________________________
 ##Databeheer
 Databeheer
