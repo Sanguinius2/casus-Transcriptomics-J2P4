@@ -37,36 +37,42 @@ De stappen van deze casus bestaan uit de volgende onderdelen(zie ook Figuur 1):
 </p>
 ________________________________________
 #Software
+
 Alle analyses zijn uitgevoerd in R versie 4.6.0 binnen RStudio.
 De volgende packages zijn gebruikt tijdens de analyse:
-|Package          |	Versie|           Doel                |
-|:----------------|:-----:|:-----------------------------:|
-|Rsubread         |2.24.0	| Alignering en featureCounts   |
-|Rsamtools	      |2.28.0	| Verwerken van BAM-bestanden   |
-|DESeq2	          |1.50.2	|Differential expression analyse|
-|EnhancedVolcano	|1.28.2	|       Volcano plot            |
-|goseq	          |1.62.0	|   GO enrichment analyse       |
-|pathview	        |1.70.0	|   KEGG pathway visualisatie   |
-|KEGGREST	        |1.52.2	|     Ophalen KEGG informatie   |
-|biomaRt	        |2.68.0	|       Genannotaties           |
-|org.Hs.eg.db	    |3.23.1	|     Entrez-ID annotaties      |
-|GO.db	          |3.23.1	|     Gene Ontology database    |
+
+
+| Package |	Versie | Doel |
+| :------- | :-----: | :----: |
+| Rsubread |2.24.0 | Alignering en featureCounts |
+| Rsamtools | 2.28.0	| Verwerken van BAM-bestanden |
+| DESeq2 | 1.50.2	|Differential expression analyse|
+| EnhancedVolcano | 1.28.2	| Volcano plot |
+| goseq | 1.62.0	|   GO enrichment analyse |
+| pathview | 1.70.0	| KEGG pathway visualisatie |
+| KEGGREST | 1.52.2	| Ophalen KEGG informatie |
+| biomaRt | 2.68.0	| Genannotaties |
+| org.Hs.eg.db | 3.23.1	| Entrez-ID annotaties |
+| GO.db | 3.23.1	| Gene Ontology database |
 
 tidyverse, dplyr, ggplot2	CRAN	Dataverwerking en visualisatie
 ________________________________________
 #Referentiegenoom
+
 Voor de alignering is gebruikgemaakt van het humane referentiegenoom:
 GCF_000001405.40_GRCh38.p14
 Dit referentiegenoom is gedownload via de NCBI Genome Database.
 Voordat de reads konden worden uitgelijnd, is met behulp van de functie buildindex() uit het package Rsubread een indexbestand opgebouwd. Deze index wordt vervolgens gebruikt om alle RNA-seq reads efficiënt tegen het referentiegenoom uit te lijnen.
 ________________________________________
 #Alignering
+
 De acht paired-end FASTQ-bestanden zijn afzonderlijk uitgelijnd tegen het humane referentiegenoom met de functie align() uit het package Rsubread.
 Voor ieder sample wordt een afzonderlijk BAM-bestand aangemaakt.
 De analyse bestaat uit vier controlesamples en vier samples afkomstig van patiënten met reumatoïde artritis.
 De gegenereerde BAM-bestanden worden opgeslagen in de map Processed Data, zodat deze later opnieuw gebruikt kunnen worden zonder de alignering opnieuw uit te voeren.
 ________________________________________
 #Read quantificatie
+
 Na de alignering wordt voor ieder gen het aantal gemapte reads bepaald met behulp van featureCounts.
 Hierbij wordt gebruikgemaakt van een GTF-annotatiebestand (genomic.gtf), waarbij reads worden samengevoegd tot gen-niveau (useMetaFeatures = TRUE).
 De resulterende count matrix wordt opgeslagen als:
@@ -74,23 +80,27 @@ Ref_Human_genome.csv
 Deze matrix bevat voor ieder gen het aantal reads per sample.
 ________________________________________
 #Count matrix
+
 Hoewel het script eerst zelfstandig een count matrix genereert uit de FASTQ-bestanden, wordt vanaf de differentiële genexpressieanalyse gebruikgemaakt van een door de docent aangeleverde count matrix (count_matrix_RA.txt).
 Deze dataset bevat dezelfde acht biologische samples, maar een verbeterde genkwantificatie. Hierdoor konden de downstream analyses consistenter worden uitgevoerd.
 In het script is duidelijk aangegeven waar wordt overgeschakeld van de zelf gegenereerde count matrix naar de aangeleverde matrix.
 ________________________________________
 #Differential expression analyse
+
 Differentiële genexpressie werd bepaald met behulp van het package DESeq2. Na het aanmaken van het DESeqDataSet object werd de analyse uitgevoerd met de functie DESeq().
 Voor ieder gen werden vervolgens de fold change, standaardfout, wald-statistiek, p-waarde en adjusted p-value berekend.
 Genen werden als significant beschouwd wanneer de adjusted p-value < 0,05 en |log2FoldChange| > 1
 De volledige resultaten worden opgeslagen als .csv bestand.
 ________________________________________
 #Volcano plot
+
 Om de differentiële genexpressie te visualiseren is gebruikgemaakt van het package EnhancedVolcano.
 De volcano plot toont voor ieder gen de log2FoldChange en de adjusted p-value.
 Hiermee worden zowel sterk opgereguleerde als sterk neerwaarts gereguleerde genen zichtbaar.
 Het figuur wordt automatisch opgeslagen als het R script wordt gerund.
 ________________________________________
 #Gene Ontology enrichment analyse
+
 Om te bepalen welke biologische processen oververtegenwoordigd zijn binnen de significant differentieel tot expressie komende genen, is een GO enrichment analyse uitgevoerd met goseq.
 Omdat RNA-seq analyses gevoelig zijn voor bias door verschillen in genlengte [(Young et al., 2010)](https://doi.org/10.1186/gb-2010-11-2-r14), zijn eerst de genlengtes opgehaald via biomaRt.
 Met behulp van nullp() wordt vervolgens gecorrigeerd voor deze lengtebias.
@@ -99,6 +109,7 @@ De tien meest significante GO-termen worden vervolgens weergegeven in een scatte
 Het figuur wordt automatisch opgeslagen als het R script wordt gerund.
 ________________________________________
 #KEGG pathway analyse
+
 Om de differentieel tot expressie komende genen biologisch te interpreteren is een KEGG pathway analyse uitgevoerd met pathview.
 Eerst worden de gen-symbolen automatisch omgezet naar Entrez Gene IDs met behulp van het package org.Hs.eg.db.
 Vervolgens worden de log2FoldChanges geprojecteerd op geselecteerde humane KEGG pathways.
@@ -111,6 +122,7 @@ De pathwayfiguren worden automatisch opgeslagen in de map Figuren.
 De RNA-seq analyse werd uitgevoerd om verschillen in genexpressie tussen synoviumweefsel van patiënten met reumatoïde artritis (RA) en gezonde controles te identificeren. De analyse bestond uit drie opeenvolgende onderdelen: een differentiële genexpressieanalyse, een Gene Ontology (GO) enrichment analyse en een KEGG pathway analyse.
 ________________________________________
 #Differential expression analyse
+
 Het doel van de differentiële genexpressieanalyse was het identificeren van genen waarvan de expressie significant verschilde tussen RA-patiënten en gezonde controles.
 De analyse liet duidelijke verschillen in genexpressie zien tussen beide groepen. Er waren 2085 opgereguleerde genen en 2487 neerwaarts gereguleerde genen geïdentificeerd, wat aangeeft dat meerdere biologische processen verschillen tussen gezond weefsel en weefsel afkomstig van patiënten met reumatoïde artritis.
 De resultaten zijn weergegeven in een volcano plot (Figuur 2). Hierin wordt voor ieder gen de log2FoldChange uitgezet tegen de negatieve log10 van de adjusted p-value. Hierdoor zijn zowel de mate van expressieverandering als de statistische significantie in één figuur zichtbaar.
@@ -124,6 +136,7 @@ De resultaten zijn weergegeven in een volcano plot (Figuur 2). Hierin wordt voor
 
 ________________________________________
 #Gene Ontology enrichment analyse
+
 Na het identificeren van de differentieel tot expressie komende genen werd onderzocht welke biologische processen significant oververtegenwoordigd waren. Hiervoor werd een Gene Ontology (GO) enrichment analyse uitgevoerd.
 De sterkst verrijkte GO-term was het Immunoglobulin mediated immune response.
 Deze verrijking wijst op een verhoogde activiteit van genen die betrokken zijn bij immunoglobuline-gemedieerde immuunresponsen. Dit ondersteunt het bekende ziektebeeld van reumatoïde artritis, waarbij B-cellen en auto-antistoffen een belangrijke rol spelen in de pathogenese van de ziekte.
@@ -138,6 +151,7 @@ De resultaten van de GO enrichment analyse zijn weergegeven in Figuur 3.
 
 ________________________________________
 #KEGG pathway analyse
+
 Om de biologische betekenis van de differentieel tot expressie komende genen verder te interpreteren, werd een KEGG pathway analyse uitgevoerd.
 De pathway analyse liet verhoogde expressie zien van meerdere genen die betrokken zijn bij ontstekingsreacties en adaptieve immuunresponsen. Zowel de pathway Rheumatoid arthritis als de B cell receptor signaling pathway bevatten meerdere genen met verhoogde expressie in de RA-groep ten opzichte van de controles.
 Deze resultaten sluiten aan bij de bevindingen uit de GO enrichment analyse en ondersteunen het beeld dat B-cellen en immunoglobuline-gemedieerde immuunprocessen een belangrijke rol spelen bij reumatoïde artritis.
