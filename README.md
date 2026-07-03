@@ -19,7 +19,7 @@ Voor deze casus zijn de volgende deelvragen opgezet
 ---
 
 ## Methoden
-De volledige analyse is uitgevoerd met het script [Main_R_File_transcriptomics.R](R files/Main_R_File_transcriptomics.R). Dit script voert de RNA-seq analyse uit vanaf de alignering van de ruwe FASTQ-bestanden tot en met de differentiële genexpressieanalyse, Gene Ontology (GO) enrichment analyse en KEGG pathway analyse.
+De volledige analyse is uitgevoerd met het script [Main_R_File_transcriptomics.R](R%20files/Main_R_File_transcriptomics.R). Dit script voert de RNA-seq analyse uit vanaf de alignering van de ruwe FASTQ-bestanden tot en met de differentiële genexpressieanalyse, Gene Ontology (GO) enrichment analyse en KEGG pathway analyse.
 De stappen van deze casus bestaan uit de volgende onderdelen(zie ook Figuur 1):
 1.	Installeren en laden van de benodigde R-packages.
 2.	Opbouwen van een index van het humane referentiegenoom (GRCh38.p14).
