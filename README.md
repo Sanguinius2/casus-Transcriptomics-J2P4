@@ -62,49 +62,41 @@ De volgende packages zijn gebruikt tijdens de analyse:
 ________________________________________
 #Referentiegenoom
 
-Voor de alignering is gebruikgemaakt van het humane referentiegenoom:
-GCF_000001405.40_GRCh38.p14.
-Dit referentiegenoom is gedownload via de [NCBI Genoma Database](https://www.ncbi.nlm.nih.gov/datasets/genome/GCF_000001405.40/).
-Voordat de reads konden worden uitgelijnd, is met behulp van de functie buildindex() uit het package Rsubread een indexbestand opgebouwd. Deze index wordt vervolgens gebruikt om alle RNA-seq reads efficiënt tegen het referentiegenoom uit te lijnen.
+Voor de alignering is gebruikgemaakt van het humane referentiegenoom GCF_000001405.40_GRCh38.p14.
+Dit referentiegenoom is gedownload via de [NCBI Genome Database](https://www.ncbi.nlm.nih.gov/datasets/genome/GCF_000001405.40/).
+Voordat de reads konden worden uitgelijnd, is met behulp van de functie buildindex() uit het package Rsubread een indexbestand gemaakt. Deze index wordt vervolgens gebruikt om alle RNA-seq reads efficiënt tegen het referentiegenoom uit te lijnen.
 ________________________________________
 #Alignering
 
-De acht paired-end FASTQ-bestanden zijn afzonderlijk uitgelijnd tegen het humane referentiegenoom met de functie align() uit het package Rsubread.
-Voor ieder sample wordt een afzonderlijk BAM-bestand aangemaakt.
+De acht paired-end FASTQ-bestanden zijn afzonderlijk uitgelijnd tegen het humane referentiegenoom met de functie align() uit de package Rsubread.
+Voor ieder sample wordt een afzonderlijk .BAM-bestand aangemaakt.
 De analyse bestaat uit vier controlesamples en vier samples afkomstig van patiënten met reumatoïde artritis.
-De gegenereerde BAM-bestanden worden opgeslagen in de map Processed Data, zodat deze later opnieuw gebruikt kunnen worden zonder de alignering opnieuw uit te voeren.
+De gegenereerde .BAM-bestanden worden opgeslagen in de map [Verwerkte Data](Verwerkte%20Data/.BAM%20files), zodat deze later opnieuw gebruikt kunnen worden zonder de alignering opnieuw uit te voeren.
 ________________________________________
 #Read quantificatie
 
 Na de alignering wordt voor ieder gen het aantal gemapte reads bepaald met behulp van featureCounts.
-Hierbij wordt gebruikgemaakt van een GTF-annotatiebestand (genomic.gtf), waarbij reads worden samengevoegd tot gen-niveau (useMetaFeatures = TRUE).
-De resulterende count matrix wordt opgeslagen als:
-Ref_Human_genome.csv
+Hierbij wordt gebruikgemaakt van een GTF-bestand (genomic.gtf), waarbij reads worden samengevoegd tot gen-niveau (useMetaFeatures = TRUE).
+De resulterende count matrix wordt opgeslagen als Ref_Human_genome.csv
 Deze matrix bevat voor ieder gen het aantal reads per sample.
-________________________________________
-#Count matrix
-
-Hoewel het script eerst zelfstandig een count matrix genereert uit de FASTQ-bestanden, wordt vanaf de differentiële genexpressieanalyse gebruikgemaakt van een door de docent aangeleverde count matrix (count_matrix_RA.txt).
-Deze dataset bevat dezelfde acht biologische samples, maar een verbeterde genkwantificatie. Hierdoor konden de downstream analyses consistenter worden uitgevoerd.
-In het script is duidelijk aangegeven waar wordt overgeschakeld van de zelf gegenereerde count matrix naar de aangeleverde matrix.
 ________________________________________
 #Differential expression analyse
 
-Differentiële genexpressie werd bepaald met behulp van het package DESeq2. Na het aanmaken van het DESeqDataSet object werd de analyse uitgevoerd met de functie DESeq().
+Differentiële genexpressie werd bepaald met behulp van het package [DESeq2](https://bioconductor.org/packages/release/bioc/html/DESeq2.html). Na het aanmaken van het DESeqDataSet object werd de analyse uitgevoerd met de functie DESeq().
 Voor ieder gen werden vervolgens de fold change, standaardfout, wald-statistiek, p-waarde en adjusted p-value berekend.
 Genen werden als significant beschouwd wanneer de adjusted p-value < 0,05 en |log2FoldChange| > 1
 De volledige resultaten worden opgeslagen als .csv bestand.
 ________________________________________
 #Volcano plot
 
-Om de differentiële genexpressie te visualiseren is gebruikgemaakt van het package EnhancedVolcano.
+Om de differentiële genexpressie te visualiseren is gebruikgemaakt van het package [EnhancedVolcano](https://bioconductor.org/packages/release/bioc/html/EnhancedVolcano.html).
 De volcano plot toont voor ieder gen de log2FoldChange en de adjusted p-value.
 Hiermee worden zowel sterk opgereguleerde als sterk neerwaarts gereguleerde genen zichtbaar.
 Het figuur wordt automatisch opgeslagen als het R script wordt gerund.
 ________________________________________
 #Gene Ontology enrichment analyse
 
-Om te bepalen welke biologische processen oververtegenwoordigd zijn binnen de significant differentieel tot expressie komende genen, is een GO enrichment analyse uitgevoerd met goseq.
+Om te bepalen welke biologische processen oververtegenwoordigd zijn binnen de significant differentieel tot expressie komende genen, is een GO enrichment analyse uitgevoerd met [goseq](https://bioconductor.org/packages/release/bioc/html/goseq.html).
 Omdat RNA-seq analyses gevoelig zijn voor bias door verschillen in genlengte [(Young et al., 2010)](https://doi.org/10.1186/gb-2010-11-2-r14), zijn eerst de genlengtes opgehaald via biomaRt.
 Met behulp van nullp() wordt vervolgens gecorrigeerd voor deze lengtebias.
 Daarna wordt met goseq() onderzocht welke GO Biological Process-termen significant verrijkt zijn.
@@ -114,9 +106,9 @@ ________________________________________
 #KEGG pathway analyse
 
 Om de differentieel tot expressie komende genen biologisch te interpreteren is een KEGG pathway analyse uitgevoerd met pathview.
-Eerst worden de gen-symbolen automatisch omgezet naar Entrez Gene IDs met behulp van het package org.Hs.eg.db.
+Eerst worden de gen-symbolen automatisch omgezet naar Entrez Gene IDs met behulp van het package [org.Hs.eg.db](https://bioconductor.org/packages/release/data/annotation/html/org.Hs.eg.db.html).
 Vervolgens worden de log2FoldChanges geprojecteerd op geselecteerde humane KEGG pathways.
-De pathwayfiguren worden automatisch opgeslagen in de map Figuren.
+De pathwayfiguren worden automatisch opgeslagen in de map [Figuren](Figuren).
 
 ---
 
