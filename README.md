@@ -165,38 +165,52 @@ De pathway analyse liet verhoogde expressie zien van meerdere genen die betrokke
 ## Conclusie
 
 Het doel van deze studie was het identificeren van verschillen in genexpressie tussen synoviumweefsel van patiënten met reumatoïde artritis (RA) en gezonde controles met behulp van een RNA-seq analyse.
+
 De differentiële genexpressieanalyse liet zien dat meerdere genen significant verschillend tot expressie kwamen tussen beide groepen.
 De Gene Ontology (GO) enrichment analyse toonde aan dat voornamelijk immuun-gerelateerde biologische processen anders waren tussen de twee groepen.
-De meest significante GO-term was Immunoglobulin mediated immune response, wat een verhoogde activiteit van B-cellen en antistofgemedieerde afweermechanismen. Verder liet de KEGG pathway analyse verhoogde activiteit zien binnen de pathways Rheumatoid arthritis (hsa05323) en B cell receptor signaling pathway (hsa04662). Deze bevindingen beantwoorden de onderzoeksvragen en laten zien dat zowel specifieke genen als immuun-gerelateerde biologische processen en signaalroutes verschillen tussen RA-patiënten en gezonde controles.
+De meest significante GO-term was Immunoglobulin mediated immune response, wat een verhoogde activiteit van B-cellen en antistofgemedieerde afweermechanismen [(Majithia & Geraci, 2007)](https://doi.org/10.1016/j.amjmed.2007.04.005). Verder liet de KEGG pathway analyse verhoogde activiteit zien binnen de pathways Rheumatoid arthritis (hsa05323) en B cell receptor signaling pathway (hsa04662). Deze bevindingen beantwoorden de onderzoeksvragen en laten zien dat zowel specifieke genen als immuun-gerelateerde biologische processen en signaalroutes verschillen tussen RA-patiënten en gezonde controles.
 De resultaten sluiten goed aan bij de huidige kennis over de pathogenese van reumatoïde artritis. Het is bekend dat B-cellen, auto-antistoffen en chronische ontstekingsprocessen een centrale rol spelen bij het ontstaan en onderhouden van de ziekte [(Smolen et al., 2016)](https://doi.org/10.1056/NEJMra1507093).
 Ook eerdere transcriptomicsstudies hebben laten zien dat genexpressie in synoviumweefsel van RA-patiënten wordt gekenmerkt door een verhoogde activiteit van immuun-gerelateerde genen en pathways, waaronder B-celactivatie en antistofgemedieerde immuunresponsen [(Platzer et al., 2019)](https://doi.org/10.1371/journal.pone.0219709). 
 De verrijking van de GO-term Immunoglobulin mediated immune response en de gevonden KEGG pathways zijn daarom in overeenstemming met eerder gepubliceerde resultaten. Daarnaast onderstrepen deze bevindingen het belang van B-cellen als potentiële biomarkers en therapeutische aangrijpingspunten bij RA [(Bugatti et al., 2014)](https://doi.org/10.1155/2014/681678).
-Een beperking van deze studie is het relatief kleine aantal geanalyseerde samples, waardoor de statistische kracht beperkt is en minder subtiele verschillen mogelijk niet zijn gedetecteerd.
-Daarnaast is voor de differentiële genexpressieanalyse gebruikgemaakt van een door de docent aangeleverde count matrix, terwijl de eerdere stappen van de workflow zijn uitgevoerd op de oorspronkelijke RNA-seq data.
-Hoewel deze werkwijze binnen de casus is verantwoord en duidelijk is gedocumenteerd, kan het gebruik van één consistente dataset de reproduceerbaarheid verder verbeteren.
+
+Een beperking van deze studie is het relatief kleine aantal geanalyseerde samples, waardoor de statistische kracht beperkt is en kleine verschillen mogelijk niet zijn waargenomen.
+
 ________________________________________
 ##Databeheer
-Databeheer
+
 Goed databeheer is belangrijk om onderzoek overzichtelijk, reproduceerbaar en betrouwbaar te maken. Tijdens een RNA-seq analyse worden veel verschillende bestanden aangemaakt, zoals FASTQ-bestanden, BAM-bestanden, count matrices, scripts en figuren. Door deze bestanden gestructureerd op te slaan blijven analyses eenvoudig terug te vinden en opnieuw uit te voeren.
 Mappenstructuur
-De repository is verdeeld in vier hoofdmappen:
-RNA-seq_analyse/
+De repository is verdeeld in vier hoofdmappen en de README file:
 
 ├── README.md
+
 ├── Figuren/
+
 ├── R_script/
+
 ├── Raw Data/
-└── Processed Data/
-De map Raw Data bevat de originele FASTQ-bestanden. Alle bestanden die tijdens de analyse worden gegenereerd, zoals BAM-bestanden, de count matrix en DESeq2-resultaten, worden opgeslagen in Processed Data. De map Figuren bevat alle automatisch gegenereerde figuren en in R File staan het script Main_R_File_transcriptomics.R en het bijbehorende RData-bestand.
+
+└── Verwerkte Data/
+
+De map Raw Data bevat de originele FASTQ-bestanden. Alle bestanden die tijdens de analyse worden gegenereerd, zoals .BAM-bestanden, de count matrix en DESeq2-resultaten, worden opgeslagen in verwerkte Data. 
+De map Figuren bevat alle automatisch gegenereerde figuren en in R File staan het script Main_R_File_transcriptomics.R en het bijbehorende RData-bestand.
+
 Naamgeving en versiebeheer
 Bestanden hebben een duidelijke en consistente naamgeving, bijvoorbeeld Main_R_File_transcriptomics.R en Resultaten.csv. Hierdoor zijn bestanden eenvoudig terug te vinden.
-Voor versiebeheer is gebruikgemaakt van Git en GitHub. Door regelmatig wijzigingen op te slaan met commits blijft de ontwikkelgeschiedenis van het project behouden en kunnen eerdere versies indien nodig worden teruggezet.
+Voor versiebeheer is gebruikgemaakt van GitHub.
+Door regelmatig wijzigingen op te slaan met commits blijft de ontwikkelgeschiedenis van het project opgeslagen en kunnen eerdere versies eventueel worden teruggezet of worden ingezien.
+
 Documentatie en reproduceerbaarheid
-Het script Main_R_File_transcriptomics.R bevat commentaarregels waarin iedere stap van de analyse wordt toegelicht. De README beschrijft de gebruikte dataset, software, workflow en repositorystructuur, zodat andere onderzoekers de analyse eenvoudig kunnen volgen en gebruiken voor eigen onderzoek. 
+Het script Main_R_File_transcriptomics.R bevat commentaarregels waarin iedere stap van de analyse wordt toegelicht.
+De README beschrijft de gebruikte dataset, software, workflow en repositorystructuur, zodat andere onderzoekers de analyse eenvoudig kunnen volgen en gebruiken voor eigen onderzoek. 
+
 Veilig omgaan met data
-De gebruikte RNA-seq data zijn afkomstig uit een eerder gepubliceerd onderzoek en bevatten geen herleidbare persoonsgegevens. De ruwe data blijven ongewijzigd opgeslagen, terwijl GitHub fungeert als centrale locatie voor scripts, documentatie en versiebeheer.
+De gebruikte RNA-seq data zijn afkomstig uit een eerder gepubliceerd onderzoek en bevatten geen herleidbare persoonsgegevens.
+De ruwe data blijven ongewijzigd opgeslagen, terwijl GitHub fungeert als centrale locatie voor scripts, documentatie en versiebeheer.
+
 GitHub en reproduceerbaarheid
-GitHub is gebruikt als centrale omgeving voor het beheren van scripts, documentatie en resultaten. Dankzij de overzichtelijke mappenstructuur, duidelijke bestandsnamen en het centrale script Main_R_File_transcriptomics.R zijn alle onderdelen van de analyse eenvoudig terug te vinden. De README beschrijft stap voor stap hoe de workflow is uitgevoerd, welke software is gebruikt en welke bestanden nodig zijn.
+GitHub is gebruikt als centrale omgeving voor het beheren van scripts, documentatie en resultaten. Dankzij de overzichtelijke mappenstructuur, duidelijke bestandsnamen en het centrale script Main_R_File_transcriptomics.
+R zijn alle onderdelen van de analyse eenvoudig terug te vinden. De README beschrijft stap voor stap hoe de workflow is uitgevoerd, welke software is gebruikt en welke bestanden nodig zijn.
 Door gebruik te maken van Git voor versiebeheer blijven alle wijzigingen inzichtelijk en kunnen eerdere versies van bestanden eenvoudig worden hersteld. Samen met de uitgebreide documentatie en de gestructureerde repository draagt dit bij aan een reproduceerbare en transparante RNA-seq analyse.
 
 
